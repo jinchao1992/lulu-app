@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="topNav">
-      <div class="logo"></div>
-      <div class="menu"></div>
-    </div>
+    <TabNav/>
     <div class="content">
       <aside>边栏</aside>
       <main>主体</main>
@@ -12,9 +9,14 @@
 </template>
 
 <script lang="ts">
+  import TabNav from './../components/TabNav.vue';
+
   export default {
-    name: 'Doc'
-  }
+    name: 'Doc',
+    components: {
+      TabNav
+    }
+  };
 </script>
 
 <style scoped>
