@@ -5,6 +5,7 @@
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
+    <a class="menuButton"></a>
   </div>
 </template>
 
@@ -45,6 +46,28 @@
 
       > li {
         margin: 0 1em;
+      }
+    }
+
+    .menuButton {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 14px;
+      left: 14px;
+      background: url("../assets/menu.png") center center no-repeat;
+      background-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .topNav {
+      .menu {
+        display: none;
+      }
+
+      .logo {
+        margin: 0 auto;
       }
     }
   }
