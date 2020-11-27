@@ -2,7 +2,7 @@
   <div>
     <TabNav/>
     <div class="content">
-      <aside>
+      <aside v-if="asideVisible">
         <h1>菜单列表</h1>
         <ol>
           <li>
@@ -26,11 +26,16 @@
 
 <script lang="ts">
   import TabNav from './../components/TabNav.vue';
+  import { inject, Ref } from 'vue';
 
   export default {
     name: 'Doc',
     components: {
       TabNav
+    },
+    setup() {
+      const asideVisible = inject<Ref<boolean>>('asideVisible');
+      return { asideVisible };
     }
   };
 </script>
