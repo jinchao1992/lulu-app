@@ -1,11 +1,11 @@
 <template>
   <div class="topNav">
-    <div class="logo" @click="toggleAside">LOGO</div>
+    <div class="logo">LOGO</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
-    <a class="menuButton"></a>
+    <a class="menuButton" @click="toggleAside"></a>
   </div>
 </template>
 
@@ -57,6 +57,7 @@
       left: 14px;
       background: url("../assets/menu.png") center center no-repeat;
       background-size: 24px;
+      display: none;
     }
   }
 
@@ -68,6 +69,14 @@
 
       .logo {
         margin: 0 auto;
+      }
+
+      .menuButton {
+        display: block;
+
+        &:hover {
+          border: none;
+        }
       }
     }
   }

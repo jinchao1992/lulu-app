@@ -3,7 +3,7 @@
     <TabNav/>
     <div class="content">
       <aside v-if="asideVisible">
-        <h1>菜单列表</h1>
+        <h1>组件列表</h1>
         <ol>
           <li>
             <router-link to="/doc/switch">Switch 组件</router-link>
@@ -44,10 +44,6 @@
   aside {
     background: lightblue;
     width: 150px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 70px 16px 16px;
 
     > h2 {
       margin-bottom: 4px;
@@ -57,6 +53,15 @@
       > li {
         padding: 4px 0;
       }
+    }
+  }
+
+  @media (max-width: 500px) {
+    aside {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 70px 16px 16px;
     }
   }
 </style>
