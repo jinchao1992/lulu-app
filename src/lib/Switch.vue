@@ -1,21 +1,22 @@
 <template>
   <div>
-    <button :class="{checked}" @click="onToggle"><span></span></button>
+    <button :class="{checked: value}" @click="onToggle">
+      <span></span>
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-  import { ref } from 'vue';
-
   export default {
     name: 'Switch.vue',
-    setup() {
-      const checked = ref(false);
+    props: {
+      value: Boolean
+    },
+    setup(props, context) {
       const onToggle = () => {
-        checked.value = !checked.value;
+        context.emit('change', !props.value);
       };
       return {
-        checked,
         onToggle
       };
     }
