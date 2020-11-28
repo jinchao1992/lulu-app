@@ -14,7 +14,7 @@
     },
     setup(props, context) {
       const onToggle = () => {
-        context.emit('change', !props.value);
+        context.emit('update:value', !props.value);
       };
       return {
         onToggle
@@ -51,6 +51,19 @@
 
       > span {
         left: calc(100% - #{$h} + 2px);
+      }
+    }
+
+    &.checked:active {
+      > span {
+        width: $h2 + 4px;
+        margin-left: -4px;
+      }
+    }
+
+    &:active {
+      > span {
+        width: $h2 + 4px;
       }
     }
   }
