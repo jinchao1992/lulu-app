@@ -1,13 +1,25 @@
 <template>
   <div>
-    <button><span></span></button>
+    <button :class="{checked}" @click="onToggle"><span></span></button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import { ref } from 'vue';
+
   export default {
-    name: 'Switch.vue'
-  }
+    name: 'Switch.vue',
+    setup() {
+      const checked = ref(false);
+      const onToggle = () => {
+        checked.value = !checked.value;
+      };
+      return {
+        checked,
+        onToggle
+      };
+    }
+  };
 </script>
 
 <style scoped lang="scss">
@@ -33,9 +45,11 @@
       transition: all .2s ease-in-out;
     }
 
-    &:hover {
+    &.checked {
+      background-color: #1890ff;
+
       > span {
-        left: calc(100% - #{$h} - 1px);
+        left: calc(100% - #{$h} + 2px);
       }
     }
   }
