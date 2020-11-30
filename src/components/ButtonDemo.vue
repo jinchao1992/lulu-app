@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Button 按钮的使用</h3>
+    <h1>Button 示例</h1>
     <Button theme="default">Default Button</Button>
     <Button theme="text">Text Button</Button>
     <Button theme="link">Link Button</Button>
