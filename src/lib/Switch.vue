@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="{checked: value}" @click="onToggle">
+    <button :class="{'lulu-checked': value}" class="lulu-switch" @click="onToggle">
       <span></span>
     </button>
   </div>
@@ -23,10 +23,10 @@
   };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
-  button {
+  .lulu-switch {
     height: $h;
     width: $h*2;
     border: none;
@@ -46,7 +46,7 @@
       transition: all .2s ease-in-out;
     }
 
-    &.checked {
+    &.lulu-checked {
       background-color: #1890ff;
 
       > span {
@@ -54,7 +54,7 @@
       }
     }
 
-    &.checked:active {
+    &.lulu-checked:active {
       > span {
         width: $h2 + 4px;
         margin-left: -4px;
