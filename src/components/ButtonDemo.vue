@@ -1,20 +1,17 @@
 <template>
   <div>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
-    <p>ButtonDemo 的文档</p>
+    <h3>Button 按钮的使用</h3>
+    <Button>Default Button</Button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Button from '../lib/Button.vue';
+
   export default {
-    name: 'ButtonDemo'
-  }
+    name: 'ButtonDemo',
+    components: { Button },
+  };
 </script>
 
 <style scoped>
