@@ -54,5 +54,38 @@
     &::-moz-focus-inner {
       border: 0;
     }
+
+    &.lulu-theme-link {
+      border-color: transparent;
+      box-shadow: none;
+      color: $blue;
+
+      &:hover, &:focus {
+        color: lighten($blue, 10%);
+      }
+    }
+
+    &.lulu-theme-text {
+      border-color: transparent;
+      box-shadow: none;
+      color: inherit;
+
+      &:hover, &:focus {
+        background: darken(white, 5%);;
+      }
+    }
+
+    &.lulu-theme-dashed {
+      color: $color;
+      background: #fff;
+      border-color: $border-color;
+      border-style: dashed;
+
+      &:hover, &:focus {
+        color: $blue;
+        background: #fff;
+        border-color: $blue
+      }
+    }
   }
 </style>
