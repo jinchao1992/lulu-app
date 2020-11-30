@@ -1,7 +1,9 @@
 <template>
   <div>
     <h3>Button 按钮的使用</h3>
-    <Button>Default Button</Button>
+    <Button theme="default">Default Button</Button>
+    <Button theme="text">Text Button</Button>
+    <Button theme="link">Link Button</Button>
   </div>
 </template>
 
@@ -10,7 +12,7 @@
 
   export default {
     name: 'ButtonDemo',
-    components: { Button },
+    components: { Button }
   };
 </script>
 
