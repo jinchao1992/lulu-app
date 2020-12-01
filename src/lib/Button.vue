@@ -1,17 +1,34 @@
 <template>
-  <button class="lulu-button" :class="`lulu-theme-${theme}`">
+  <button class="lulu-button" :class="className">
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
+  import { computed } from 'vue';
+
   export default {
     name: 'Button',
     props: {
       theme: {
         type: String,
         default: 'default'
+      },
+      size: {
+        type: String,
+        default: 'normal'
       }
+    },
+    setup(props) {
+      const className = computed(() => {
+        return {
+          [`lulu-theme-${props.theme}`]: props.theme,
+          [`lulu-size-${props.size}`]: props.size
+        };
+      });
+      return {
+        className
+      };
     }
   };
 </script>
@@ -86,6 +103,18 @@
         background: #fff;
         border-color: $blue
       }
+    }
+
+    &.lulu-size-large {
+      height: 40px;
+      padding: 6.4px 15px;
+      font-size: 16px;
+    }
+
+    &.lulu-size-small {
+      height: 24px;
+      padding: 0 7px;
+      font-size: 14px;
     }
   }
 </style>
