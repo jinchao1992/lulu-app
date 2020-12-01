@@ -50,6 +50,12 @@
         <Button level="warning" theme="text">警告 Text</Button>
       </div>
     </div>
+    <h1>禁用状态</h1>
+    <div>
+      <Button disabled>禁用按钮</Button>
+      <Button theme="link" disabled>禁用 Link</Button>
+      <Button theme="text" disabled>禁用 Text</Button>
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <button class="lulu-button" :class="className">
+  <button class="lulu-button" :class="className" :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -21,6 +21,10 @@
       level: {
         type: String,
         default: 'normal'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     setup(props) {
@@ -129,6 +133,16 @@
           background: darken($yellow, 10%);
           border-color: darken($yellow, 10%);
         }
+      }
+
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, .25);
+        background: #f5f5f5;
+        border-color: #d9d9d9;
+        text-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
       }
     }
 
@@ -247,6 +261,18 @@
       height: 24px;
       padding: 0 7px;
       font-size: 14px;
+    }
+
+    &.lulu-theme-link, &.lulu-theme-text {
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, .25);
+        background: 0 0;
+        border-color: transparent;
+        text-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
     }
   }
 </style>
