@@ -1,5 +1,6 @@
 <template>
   <button class="lulu-button" :class="className" :disabled="disabled">
+    <span v-if="loading" class="lulu-loadingIndicator"></span>
     <slot/>
   </button>
 </template>
@@ -23,6 +24,10 @@
         default: 'normal'
       },
       disabled: {
+        type: Boolean,
+        default: false
+      },
+      loading: {
         type: Boolean,
         default: false
       }
@@ -67,6 +72,7 @@
     border-radius: $radius;
     box-shadow: 0 1px 0 fade-out(black, 0.95);
     transition: background 250ms;
+    position: relative;
 
     & + & {
       margin-left: 8px;
@@ -273,6 +279,27 @@
         -webkit-box-shadow: none;
         box-shadow: none;
       }
+    }
+
+    > .lulu-loadingIndicator {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      margin-right: 4px;
+      border-radius: 8px;
+      border-color: #fff #fff #fff transparent;
+      border-style: solid;
+      border-width: 2px;
+      animation: lulu-spin 1s infinite linear;
+    }
+  }
+
+  @keyframes lulu-spin {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
     }
   }
 </style>

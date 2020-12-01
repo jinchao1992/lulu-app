@@ -56,6 +56,10 @@
       <Button theme="link" disabled>禁用 Link</Button>
       <Button theme="text" disabled>禁用 Text</Button>
     </div>
+    <h1>加载中</h1>
+    <div>
+      <Button loading level="primary">loading</Button>
+    </div>
   </div>
 </template>
 
