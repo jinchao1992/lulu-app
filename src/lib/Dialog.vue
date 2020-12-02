@@ -1,18 +1,20 @@
 <template>
-  <div class="lulu-dialog-overlay"></div>
-  <div class="lulu-dialog-wrapper">
-    <div class="lulu-dialog">
-      <header>标题 <span class="lulu-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="primary">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="lulu-dialog-overlay"></div>
+    <div class="lulu-dialog-wrapper">
+      <div class="lulu-dialog">
+        <header>标题 <span class="lulu-dialog-close"></span></header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button level="primary">OK</Button>
+          <Button>Cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
@@ -20,6 +22,12 @@
 
   export default {
     name: 'Dialog',
+    props: {
+      visible: {
+        type: Boolean,
+        default: false
+      }
+    },
     components: {
       Button
     }
