@@ -1,19 +1,21 @@
 <template>
-  <template v-if="visible">
-    <div class="lulu-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="lulu-dialog-wrapper">
-      <div class="lulu-dialog">
-        <header>{{title}} <span class="lulu-dialog-close" @click="close"></span></header>
-        <main>
-          <slot/>
-        </main>
-        <footer>
-          <Button level="primary" @click="onOk">OK</Button>
-          <Button @click="onCancel">Cancel</Button>
-        </footer>
+  <Teleport to="body">
+    <template v-if="visible">
+      <div class="lulu-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="lulu-dialog-wrapper">
+        <div class="lulu-dialog">
+          <header>{{title}} <span class="lulu-dialog-close" @click="close"></span></header>
+          <main>
+            <slot/>
+          </main>
+          <footer>
+            <Button level="primary" @click="onOk">OK</Button>
+            <Button @click="onCancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
-  </template>
+    </template>
+  </Teleport>
 </template>
 
 <script lang="ts">
