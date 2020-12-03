@@ -3,10 +3,9 @@
     <div class="lulu-dialog-overlay" @click="onClickOverlay"></div>
     <div class="lulu-dialog-wrapper">
       <div class="lulu-dialog">
-        <header>标题 <span class="lulu-dialog-close" @click="close"></span></header>
+        <header>{{title}} <span class="lulu-dialog-close" @click="close"></span></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot/>
         </main>
         <footer>
           <Button level="primary" @click="onOk">OK</Button>
@@ -30,6 +29,10 @@
       overlayClosable: {
         type: Boolean,
         default: true
+      },
+      title: {
+        type: String,
+        default: '提示'
       },
       ok: Function,
       cancel: Function

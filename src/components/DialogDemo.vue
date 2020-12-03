@@ -2,7 +2,10 @@
   <div>
     <h1>示例1</h1>
     <Button level="primary" @click="toggle">Dialog</Button>
-    <Dialog v-model:visible="visible" overlayClosable :ok="ok" :cancel="cancel"/>
+    <Dialog v-model:visible="visible" overlayClosable :ok="ok" :cancel="cancel">
+      <p>这是一行内容</p>
+      <p>这是第二行内容</p>
+    </Dialog>
   </div>
 </template>
 
