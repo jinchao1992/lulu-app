@@ -6,6 +6,9 @@
       <p>这是一行内容</p>
       <p>这是第二行内容</p>
     </Dialog>
+
+    <h1>示例2</h1>
+    <Button level="primary" @click="showDialog">show dialog</Button>
   </div>
 </template>
 
@@ -13,6 +16,7 @@
   import { ref } from 'vue';
   import Dialog from '../lib/Dialog.vue';
   import Button from '../lib/Button.vue';
+  import { openDialog } from '../lib/openDialog';
 
   export default {
     name: 'DiglogDemo',
@@ -32,11 +36,25 @@
       const cancel = () => {
         console.log('cancel');
       };
+      const showDialog = () => {
+        openDialog({
+          title: '测试',
+          content: '122112',
+          ok: () => {
+            console.log('ok');
+          },
+          cancel: () => {
+            console.log('cancel');
+          },
+          overlayClosable: true
+        });
+      };
       return {
         visible,
         toggle,
         ok,
-        cancel
+        cancel,
+        showDialog
       };
     }
   };
