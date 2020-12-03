@@ -1,16 +1,16 @@
 <template>
   <template v-if="visible">
-    <div class="lulu-dialog-overlay"></div>
+    <div class="lulu-dialog-overlay" @click="onClickOverlay"></div>
     <div class="lulu-dialog-wrapper">
       <div class="lulu-dialog">
-        <header>标题 <span class="lulu-dialog-close"></span></header>
+        <header>标题 <span class="lulu-dialog-close" @click="close"></span></header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
         </main>
         <footer>
-          <Button level="primary">OK</Button>
-          <Button>Cancel</Button>
+          <Button level="primary" @click="onOk">OK</Button>
+          <Button @click="onCancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -26,10 +26,35 @@
       visible: {
         type: Boolean,
         default: false
-      }
+      },
+      overlayClosable: {
+        type: Boolean,
+        default: true
+      },
+      ok: Function,
+      cancel: Function
     },
     components: {
       Button
+    },
+    setup(props, context) {
+      const close = () => {
+        context.emit('update:visible', false);
+      };
+      const onClickOverlay = () => {
+        if (props.overlayClosable) {
+          close();
+        }
+      };
+      const onOk = () => {
+        if (props.ok && props.ok() !== false) {
+          close();
+        }
+      };
+      const onCancel = () => {
+        close();
+      };
+      return { close, onClickOverlay, onOk, onCancel };
     }
   };
 </script>
