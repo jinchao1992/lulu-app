@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <div v-for="(t,index) in titles" :key="index">{{t}}</div>
-    <component v-for="(c, index) in defaults" :is="c" :key="index"/>
+  <div class="lulu-tabs">
+    <div class="lulu-tabs-nav">
+      <div class="lulu-tabs-nav-item" v-for="(t,index) in titles" :key="index">{{t}}</div>
+    </div>
+    <div class="lulu-tabs-content">
+      <component class="lulu-tabs-content-item" v-for="(c, index) in defaults" :is="c" :key="index"/>
+    </div>
   </div>
 </template>
 
@@ -28,6 +32,33 @@
   };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  $blue: #40a9ff;
+  $color: #333;
+  $border-color: #d9d9d9;
+  .lulu-tabs {
+    &-nav {
+      display: flex;
+      color: $color;
+      border-bottom: 1px solid $border-color;
 
+      &-item {
+        padding: 8px 0;
+        margin: 0 16px;
+        cursor: pointer;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &.selected {
+          color: $blue;
+        }
+      }
+    }
+
+    &-content {
+      padding: 8px 0;
+    }
+  }
 </style>
