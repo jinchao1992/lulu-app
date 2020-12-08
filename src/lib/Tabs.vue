@@ -7,8 +7,11 @@
         v-for="(n,index) in navs"
         :key="index"
         @click="() => select(n.key)"
-      >{{n.title}}
+        :ref="el => { if (el) navItems[index] = el }"
+      >
+        {{n.title}}
       </div>
+      <div class="lulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="lulu-tabs-content">
       <component class="lulu-tabs-content-item" :is="current"/>
@@ -17,7 +20,7 @@
 </template>
 
 <script lang="ts">
-  import { computed } from 'vue';
+  import { computed, onMounted, ref } from 'vue';
   import Tab from './Tab.vue';
 
   export default {
@@ -26,6 +29,14 @@
       selected: String
     },
     setup(props, context) {
+      const navItems = ref<HTMLDivElement[]>([]);
+      const indicator = ref<HTMLDivElement>(null);
+      onMounted(() => {
+        const divs = navItems.value;
+        const result = divs.find(div => div.classList.contains('selected'));
+        const { width } = result.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
+      });
       const defaults = context.slots.default();
       defaults.forEach(node => {
         if (node.type !== Tab) {
@@ -51,18 +62,21 @@
         defaults,
         navs,
         current,
-        select
+        select,
+        navItems,
+        indicator
       };
     }
   };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   $blue: #40a9ff;
   $color: #333;
   $border-color: #d9d9d9;
   .lulu-tabs {
     &-nav {
+      position: relative;
       display: flex;
       color: $color;
       border-bottom: 1px solid $border-color;
@@ -79,6 +93,18 @@
         &.selected {
           color: $blue;
         }
+      }
+
+      &-indicator {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        z-index: 1;
+        box-sizing: border-box;
+        width: 100px;
+        height: 3px;
+        background-color: #1890ff;
+        transform-origin: 0 0;
       }
     }
 
