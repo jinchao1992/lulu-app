@@ -7,7 +7,7 @@
         v-for="(n,index) in navs"
         :key="index"
         @click="() => select(n.key)"
-        :ref="el => { if (el) navItems[index] = el }"
+        :ref="el => { if(n.key === selected) selectedItem = el}"
       >
         {{n.title}}
       </div>
@@ -29,13 +29,11 @@
       selected: String
     },
     setup(props, context) {
-      const navItems = ref<HTMLDivElement[]>([]);
+      const selectedItem = ref<HTMLDivElement>(null);
       const indicator = ref<HTMLDivElement>(null);
       const container = ref<HTMLDivElement>(null);
       const indicatorAnimate = () => {
-        const divs = navItems.value;
-        const result = divs.find(div => div.classList.contains('selected'));
-        const { width, left: leftItem } = result.getBoundingClientRect();
+        const { width, left: leftItem } = selectedItem.value.getBoundingClientRect();
         indicator.value.style.width = width + 'px';
         const { left: leftContainer } = container.value.getBoundingClientRect();
         indicator.value.style.left = leftItem - leftContainer + 'px';
@@ -68,7 +66,7 @@
         navs,
         current,
         select,
-        navItems,
+        selectedItem,
         indicator,
         container
       };
