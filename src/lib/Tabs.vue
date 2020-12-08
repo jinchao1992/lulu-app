@@ -1,6 +1,6 @@
 <template>
   <div class="lulu-tabs">
-    <div class="lulu-tabs-nav">
+    <div class="lulu-tabs-nav" ref="container">
       <div
         class="lulu-tabs-nav-item"
         :class="{selected: selected === n.key}"
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-  import { computed, onMounted, ref } from 'vue';
+  import { computed, onMounted, onUpdated, ref } from 'vue';
   import Tab from './Tab.vue';
 
   export default {
@@ -31,12 +31,17 @@
     setup(props, context) {
       const navItems = ref<HTMLDivElement[]>([]);
       const indicator = ref<HTMLDivElement>(null);
-      onMounted(() => {
+      const container = ref<HTMLDivElement>(null);
+      const indicatorAnimate = () => {
         const divs = navItems.value;
         const result = divs.find(div => div.classList.contains('selected'));
-        const { width } = result.getBoundingClientRect();
+        const { width, left: leftItem } = result.getBoundingClientRect();
         indicator.value.style.width = width + 'px';
-      });
+        const { left: leftContainer } = container.value.getBoundingClientRect();
+        indicator.value.style.left = leftItem - leftContainer + 'px';
+      };
+      onMounted(indicatorAnimate);
+      onUpdated(indicatorAnimate);
       const defaults = context.slots.default();
       defaults.forEach(node => {
         if (node.type !== Tab) {
@@ -64,7 +69,8 @@
         current,
         select,
         navItems,
-        indicator
+        indicator,
+        container
       };
     }
   };
@@ -101,10 +107,12 @@
         left: 0;
         z-index: 1;
         box-sizing: border-box;
-        width: 100px;
+        width: 0;
         height: 3px;
         background-color: #1890ff;
         transform-origin: 0 0;
+        transition: width .3s cubic-bezier(.645, .045, .355, 1),
+        left .3s cubic-bezier(.645, .045, .355, 1);
       }
     }
 
