@@ -29,12 +29,13 @@
 </script>
 
 <style scoped lang="scss">
+  $color: #007974;
   .topNav {
-    background: pink;
     display: flex;
     padding: 16px;
     position: relative;
     z-index: 10;
+    color: $color;
 
     > .logo {
       max-width: 6em;
