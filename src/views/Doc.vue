@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <TabNav class="nav"/>
+    <TabNav class="nav" toggle-menu-button-visible/>
     <div class="content">
       <aside v-if="asideVisible">
         <h1>组件列表</h1>
@@ -20,6 +20,7 @@
         </ol>
       </aside>
       <main>
+        <h3>封装的小组件</h3>
         <router-view/>
       </main>
     </div>

@@ -1,10 +1,11 @@
 <template>
   <div class="topNav">
     <div class="logo">
-      <router-link to="/">
+      <router-link to="/" class="logo-link">
         <svg class="icon">
           <use xlink:href="#icon-chao"></use>
         </svg>
+        <span>LuLu-Ui</span>
       </router-link>
     </div>
     <ul class="menu">
@@ -12,7 +13,7 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <a class="menuButton" @click="toggleAside"></a>
+    <a v-if="toggleMenuButtonVisible" class="menuButton" @click="toggleAside"></a>
   </div>
 </template>
 
@@ -21,6 +22,12 @@
 
   export default {
     name: 'TabNav',
+    props: {
+      toggleMenuButtonVisible: {
+        type: Boolean,
+        default: false
+      }
+    },
     setup() {
       const asideVisible = inject<Ref<boolean>>('asideVisible');
       const toggleAside = () => {
@@ -42,13 +49,20 @@
     z-index: 10;
     color: $color;
 
-    > .logo {
+    .logo {
       max-width: 6em;
       margin-right: auto;
 
+      &-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
       svg {
-        width: 22px;
-        height: 22px;
+        width: 28px;
+        height: 28px;
+        margin-right: 4px;
       }
     }
 
@@ -74,7 +88,7 @@
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media (max-width: 500px) {
     .topNav {
       .menu {
         display: none;
