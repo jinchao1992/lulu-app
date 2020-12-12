@@ -1,7 +1,11 @@
 <template>
   <div class="topNav">
     <div class="logo">
-      <router-link to="/">Logo</router-link>
+      <router-link to="/">
+        <svg class="icon">
+          <use xlink:href="#icon-chao"></use>
+        </svg>
+      </router-link>
     </div>
     <ul class="menu">
       <li>菜单1</li>
@@ -40,6 +44,11 @@
     > .logo {
       max-width: 6em;
       margin-right: auto;
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
     }
 
     > .menu {

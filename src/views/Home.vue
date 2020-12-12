@@ -10,6 +10,17 @@
       </p>
     </div>
   </div>
+  <div class="features">
+    <svg class="icon">
+      <use xlink:href="#icon-vue"></use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#icon-ts"></use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#icon-deng"></use>
+    </svg>
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,6 +39,7 @@
   $border-radius: 2px;
   .homeWrapper {
     background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+    clip-path: ellipse(80% 60% at 50% 40%);
   }
 
   .banner {
@@ -49,6 +61,13 @@
         border-radius: $border-radius;
         padding: 8px 24px;
       }
+    }
+  }
+
+  .features {
+    > svg {
+      width: 64px;
+      height: 64px;
     }
   }
 </style>
