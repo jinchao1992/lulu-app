@@ -76,12 +76,14 @@
   }
 
   aside {
-    background: lightblue;
     width: 150px;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     padding: 70px 16px 16px;
+    z-index: 3;
+    background: lightblue;
 
     > h2 {
       margin-bottom: 4px;
