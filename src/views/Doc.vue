@@ -3,8 +3,22 @@
     <TabNav class="nav" toggle-menu-button-visible/>
     <div class="content">
       <aside v-if="asideVisible">
-        <h1>组件列表</h1>
+        <h2>文档</h2>
         <ol>
+          <li>
+            <router-link to="/doc/intro">介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/install">安装</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/get-started">开始</router-link>
+          </li>
+        </ol>
+        <h2>组件列表</h2>
+        <ol>
+          <li>
+          </li>
           <li>
             <router-link to="/doc/switch">Switch 组件</router-link>
           </li>
@@ -20,7 +34,6 @@
         </ol>
       </aside>
       <main>
-        <h3>封装的小组件</h3>
         <router-view/>
       </main>
     </div>
