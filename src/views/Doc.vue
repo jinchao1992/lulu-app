@@ -57,6 +57,7 @@
 </script>
 
 <style scoped lang="scss">
+  $color: #1890ff;
   .layout {
     display: flex;
     flex-direction: column;
@@ -95,17 +96,35 @@
     position: fixed;
     top: 0;
     left: 0;
-    padding: 70px 16px 16px;
+    padding: 70px 0 16px;
     z-index: 3;
-    background: lightblue;
+    background: #fff;
+    border-right: 1px solid #f0f0f0;
 
     > h2 {
       margin-bottom: 4px;
+      padding: 0 16px;
     }
 
     > ol {
       > li {
-        padding: 4px 0;
+        > a {
+          display: block;
+          padding: 8px 16px;
+          text-decoration: none;
+          font-size: 14px;
+          transition: all .25s;
+
+          &:hover {
+            color: $color;
+          }
+
+          &.router-link-active {
+            color: $color;
+            background-color: #e6f7ff;
+          }
+        }
+
       }
     }
   }
