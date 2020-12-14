@@ -1,10 +1,17 @@
 <template>
-  <h2>开始</h2>
+  <article class="markdown-body" v-html="md"></article>
 </template>
 
 <script>
+  import md from '../md/get-started.md'
+
   export default {
-    name: 'GetStarted'
+    name: 'GetStarted',
+    data() {
+      return {
+        md
+      }
+    }
   }
 </script>
 

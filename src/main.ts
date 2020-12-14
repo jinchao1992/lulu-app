@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import './index.scss';
 import './lib/lulu.scss';
+import 'github-markdown-css';
 import App from './App.vue';
 import router from './router';
 

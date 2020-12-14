@@ -1,10 +1,17 @@
 <template>
-  <h2>安装</h2>
+  <article class="markdown-body" v-html="md"></article>
 </template>
 
 <script>
+  import md from '../md/install.md'
+
   export default {
-    name: 'Install'
+    name: 'Install',
+    data() {
+      return {
+        md
+      }
+    }
   }
 </script>
 

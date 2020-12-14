@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <h2>简介</h2>
-  </div>
+  <article class="markdown-body" v-html="md"></article>
 </template>
 
 <script>
+  import md from '../md/intro.md'
+
   export default {
-    name: 'Intro'
+    name: 'Intro',
+    data() {
+      return {
+        md
+      }
+    }
   }
 </script>
 
