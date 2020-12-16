@@ -1,20 +1,3 @@
 <template>
-  <article class="markdown-body" v-html="md"></article>
+  <Markdown path="../md/install.md"/>
 </template>
-
-<script>
-  import md from '../md/install.md'
-
-  export default {
-    name: 'Install',
-    data() {
-      return {
-        md
-      }
-    }
-  }
-</script>
-
-<style scoped>
-
-</style>
