@@ -41,7 +41,7 @@
 </script>
 
 <style scoped lang="scss">
-  $color: #007974;
+  $color: #40a9ff;
   .topNav {
     display: flex;
     padding: 16px;
