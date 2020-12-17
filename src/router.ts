@@ -5,9 +5,17 @@ import SwitchDemo from './components/SwitchDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DiglogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
-import Intro from './views/Intro.vue';
-import GetStarted from './views/GetStarted.vue';
-import Install from './views/Install.vue';
+import { h } from 'vue';
+import Markdown from './components/Markdown.vue';
+
+const markdown = (fileName) => h(Markdown, { path: `../md/${fileName}.md`, key: fileName });
+
+/*
+*  注：h 函数用来创建虚拟节点，接收三个参数：type props children
+*  其中：type 可以为组件或者 HTML 标签名，
+*  props 则是传的属性值
+* children 是子级内容
+* */
 
 const history = createWebHashHistory();
 
@@ -24,15 +32,15 @@ const router = createRouter({
       children: [
         {
           path: 'intro',
-          component: Intro
+          component: markdown('intro')
         },
         {
           path: 'get-started',
-          component: GetStarted
+          component: markdown('get-started')
         },
         {
           path: 'install',
-          component: Install
+          component: markdown('install')
         },
         {
           path: 'switch',
