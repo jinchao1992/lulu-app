@@ -1,3 +1,7 @@
+<demo>
+  常规写法
+</demo>
+
 <template>
   <Switch v-model:value="bool"/>
 </template>
