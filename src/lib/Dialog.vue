@@ -9,8 +9,8 @@
             <slot/>
           </main>
           <footer>
-            <Button level="primary" @click="onOk">OK</Button>
-            <Button @click="onCancel">Cancel</Button>
+            <Button level="primary" @click="onOk">确定</Button>
+            <Button @click="onCancel">取消</Button>
           </footer>
         </div>
       </div>
@@ -34,7 +34,7 @@
       },
       title: {
         type: String,
-        default: '提示'
+        default: 'title'
       },
       ok: Function,
       cancel: Function
@@ -111,6 +111,10 @@
       border-top: 1px solid $border-color;
       padding: 16px 24px;
       text-align: right;
+
+      .lulu-button + .lulu-button {
+        margin-left: 8px;
+      }
     }
 
     &-close {
