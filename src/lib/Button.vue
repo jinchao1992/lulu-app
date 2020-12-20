@@ -74,10 +74,6 @@
     transition: background 250ms;
     position: relative;
 
-    & + & {
-      margin-left: 8px;
-    }
-
     &:hover,
     &:focus {
       color: $blue;

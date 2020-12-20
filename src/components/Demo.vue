@@ -1,16 +1,17 @@
 <template>
   <div class="demo">
-    <h2>常规用法</h2>
+    <h2>{{component.__sourceCodeTitle}}</h2>
     <div class="demo-component">
       <component :is="component"/>
     </div>
     <div class="demo-actions">
       <Button level="primary" @click="toggleCode">查看代码</Button>
     </div>
-    <div class="demo-code" v-if="codeVisible">
-        <pre
-          v-html="html"
-        />
+    <div v-if="codeVisible">
+      <pre
+        v-html="html"
+        class="demo-code"
+      />
     </div>
   </div>
 </template>
@@ -49,7 +50,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   $border-color: #d9d9d9;
   .demo {
     border: 1px solid $border-color;
@@ -63,6 +64,11 @@
 
     &-component {
       padding: 16px;
+
+      .lulu-button {
+        margin-right: 8px;
+        margin-bottom: 12px;
+      }
     }
 
     &-actions {
@@ -73,6 +79,7 @@
     &-code {
       padding: 8px 16px;
       border-top: 1px dashed $border-color;
+      overflow: auto;
 
       > pre {
         line-height: 1.1;
