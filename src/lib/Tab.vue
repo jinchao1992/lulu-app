@@ -4,7 +4,10 @@
 
 <script lang="ts">
   export default {
-    name: 'Tab'
+    name: 'Tab',
+    props: {
+      title: String
+    }
   };
 </script>
 
