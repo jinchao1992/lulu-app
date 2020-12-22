@@ -7,8 +7,11 @@ import DiglogDemo from './components/Dialog/DialogDemo.vue';
 import TabsDemo from './components/Tabs/TabsDemo.vue';
 import { h } from 'vue';
 import Markdown from './components/Markdown.vue';
+import intro from './md/intro.md';
+import getStarted from './md/get-started.md';
+import install from './md/install.md';
 
-const markdown = (fileName) => h(Markdown, { path: `../md/${fileName}.md`, key: fileName });
+const markdown = (string, key) => h(Markdown, { content: string, key });
 
 /*
 *  注：h 函数用来创建虚拟节点，接收三个参数：type props children
@@ -32,15 +35,15 @@ const router = createRouter({
       children: [
         {
           path: 'intro',
-          component: markdown('intro')
+          component: markdown(intro, '1')
         },
         {
           path: 'get-started',
-          component: markdown('get-started')
+          component: markdown(getStarted, '2')
         },
         {
           path: 'install',
-          component: markdown('install')
+          component: markdown(install, '3')
         },
         {
           path: 'switch',
