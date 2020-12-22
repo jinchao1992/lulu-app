@@ -5,6 +5,7 @@ import { baseParse } from '@vue/compiler-core';
 
 export default {
   plugins: [md()],
+  assetsDir: 'assets',
   base: './',
   vueCustomBlockTransforms: {
     demo: (options) => {
