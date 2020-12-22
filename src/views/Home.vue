@@ -86,13 +86,13 @@
 
   .features-wrapper {
     margin: 64px auto;
-    width: 400px;
   }
 
   .features {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0 16px;
 
     &-item {
       display: flex;
@@ -118,12 +118,24 @@
   @media (min-width: 800px) {
     .features-wrapper {
       width: 800px;
+
+      > ul {
+        > li {
+          width: 50%;
+        }
+      }
     }
   }
 
   @media (min-width: 1200px) {
     .features-wrapper {
       width: 1200px;
+
+      > ul {
+        > li {
+          width: 33.33333%;
+        }
+      }
     }
   }
 </style>
