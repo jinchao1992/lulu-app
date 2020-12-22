@@ -5,6 +5,7 @@ import { baseParse } from '@vue/compiler-core';
 
 export default {
   plugins: [md()],
+  base: './',
   vueCustomBlockTransforms: {
     demo: (options) => {
       const { code, path } = options;
