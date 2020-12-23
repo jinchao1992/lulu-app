@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button :class="{'lulu-checked': value}" class="lulu-switch" @click="onToggle">
+    <button
+      :class="{'lulu-switch-checked': value, 'lulu-switch-disabled': disabled}"
+      :disabled="disabled"
+      class="lulu-switch"
+      @click="onToggle"
+    >
       <span></span>
     </button>
   </div>
@@ -10,7 +15,8 @@
   export default {
     name: 'Switch.vue',
     props: {
-      value: Boolean
+      value: Boolean,
+      disabled: Boolean
     },
     setup(props, context) {
       const onToggle = () => {
@@ -46,7 +52,7 @@
       transition: all .2s ease-in-out;
     }
 
-    &.lulu-checked {
+    &-checked {
       background-color: #1890ff;
 
       > span {
@@ -54,16 +60,27 @@
       }
     }
 
-    &.lulu-checked:active {
-      > span {
-        width: $h2 + 4px;
-        margin-left: -4px;
-      }
-    }
-
     &:active {
       > span {
         width: $h2 + 4px;
+      }
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+
+      &:active {
+        > span {
+          width: $h2;
+        }
+      }
+    }
+
+    &-checked:active {
+      > span {
+        width: $h2 + 4px;
+        margin-left: -4px;
       }
     }
   }
