@@ -1,10 +1,10 @@
 {
-  "name": "lulu-ui",
+  "name": "lulu-ui-vue3",
   "version": "0.0.1",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/lulu.js",
+  "main": "dist/lib/lulu-ui-vue3.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
