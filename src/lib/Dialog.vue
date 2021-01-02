@@ -57,7 +57,7 @@
         }
       };
       const onCancel = () => {
-        props.cancel?.();
+        props.cancel && props.cancel();
         close();
       };
       return { close, onClickOverlay, onOk, onCancel };
