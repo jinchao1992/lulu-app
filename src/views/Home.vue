@@ -5,6 +5,7 @@
       <h1>辘辘UI</h1>
       <h2>一个厉害的UI</h2>
       <p class="actions">
+        <a href="https://gitee.com/webjinchao/lulu-app.git">码云</a>
         <a href="https://github.com">GitHub</a>
         <router-link to="/doc/intro">开始</router-link>
       </p>
