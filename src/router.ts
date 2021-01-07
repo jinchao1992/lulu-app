@@ -54,7 +54,7 @@ const router = createRouter({
           component: ButtonDemo
         },
         {
-          path: 'diglog',
+          path: 'dialog',
           component: DiglogDemo
         },
         {
