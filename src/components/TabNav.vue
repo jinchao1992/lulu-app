@@ -13,7 +13,14 @@
         <router-link to="/doc/intro">文档</router-link>
       </li>
     </ul>
-    <a v-if="toggleMenuButtonVisible" class="menuButton" @click="toggleAside"></a>
+    <a v-if="toggleMenuButtonVisible" class="menuButton" @click="toggleAside">
+      <svg class="icon" v-if="!asideVisible">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
+      <svg class="icon" v-else>
+        <use xlink:href="#icon-close"></use>
+      </svg>
+    </a>
   </div>
 </template>
 
@@ -34,7 +41,8 @@
         asideVisible.value = !asideVisible.value;
       };
       return {
-        toggleAside
+        toggleAside,
+        asideVisible
       };
     }
   };
@@ -43,11 +51,16 @@
 <style scoped lang="scss">
   $color: #40a9ff;
   .topNav {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
+    width: 100%;
     padding: 16px;
-    position: relative;
+    background: #fff;
     z-index: 10;
     color: $color;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
 
     .logo {
       max-width: 6em;
@@ -82,9 +95,12 @@
       height: 24px;
       top: 14px;
       left: 14px;
-      background: url("../assets/menu.png") center center no-repeat;
-      background-size: 24px;
       display: none;
+
+      .icon {
+        color: rgba(0, 0, 0, .65);
+        font-size: 24px;
+      }
     }
   }
 

@@ -2,7 +2,7 @@
   <div class="layout">
     <TabNav class="nav" toggle-menu-button-visible/>
     <div class="content">
-      <aside v-if="asideVisible">
+      <aside class="sidebar" :class="[{'open': asideVisible}]">
         <h2>文档</h2>
         <ol>
           <li>
@@ -69,7 +69,7 @@
 
     > .content {
       flex-grow: 1;
-      padding-top: 6px;
+      padding-top: 60px;
       padding-left: 156px;
       @media (max-width: 500px) {
         padding-left: 0;
@@ -90,7 +90,7 @@
     }
   }
 
-  aside {
+  .sidebar {
     width: 150px;
     height: 100%;
     position: fixed;
@@ -100,6 +100,12 @@
     z-index: 3;
     background: #fff;
     border-right: 1px solid #f0f0f0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
+    transform: translate3d(-200px, 0, 0);
+
+    &.open {
+      transform: translate3d(0, 0, 0);
+    }
 
     > h2 {
       margin-bottom: 4px;
@@ -134,7 +140,7 @@
   }
 
   @media (max-width: 500px) {
-    aside {
+    .sidebar {
     }
   }
 </style>
