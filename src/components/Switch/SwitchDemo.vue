@@ -1,8 +1,16 @@
 <template>
   <div>
     <h1>Switch 组件示例 </h1>
-    <Demo :component="Switch1Demo"/>
-    <Demo :component="Switch2Demo"/>
+    <Demo :component="Switch1Demo">
+      <template v-slot:demo-description>
+        <p>最简单的用法</p>
+      </template>
+    </Demo>
+    <Demo :component="Switch2Demo">
+      <template v-slot:demo-description>
+        <p>Switch 失效状态</p>
+      </template>
+    </Demo>
   </div>
 </template>
 

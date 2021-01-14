@@ -1,13 +1,26 @@
 <template>
   <div class="demo">
-    <h2>{{component.__sourceCodeTitle}}</h2>
-    <div class="demo-component">
+    <section class="demo-component">
       <component :is="component"/>
-    </div>
-    <div class="demo-actions">
-      <Button level="primary" @click="hideCode" v-if="codeVisible">隐藏代码</Button>
-      <Button level="primary" @click="showCode" v-else>查看代码</Button>
-    </div>
+    </section>
+    <section class="demo-meta">
+      <div class="demo-meta-title">{{component.__sourceCodeTitle}}</div>
+      <div class="demo-meta-description">
+        <slot name="demo-description"></slot>
+      </div>
+      <div class="demo-meta-actions">
+        <span class="demo-actions-icon" v-if="!codeVisible" title="显示代码" @click="showCode">
+          <svg class="icon">
+          <use xlink:href="#icon-code1"></use>
+        </svg>
+        </span>
+        <span class="demo-actions-icon" v-else title="收起代码" @click="hideCode">
+          <svg class="icon">
+            <use xlink:href="#icon-code"></use>
+          </svg>
+        </span>
+      </div>
+    </section>
     <div v-if="codeVisible">
       <pre
         v-html="html"
@@ -21,7 +34,6 @@
   import { computed, ref } from 'vue';
   import 'prismjs';
   import 'prismjs/themes/prism.css';
-  import Button from '../lib/Button.vue';
 
   const Prism = (window as any).Prism;
 
@@ -29,9 +41,6 @@
     name: 'Demo',
     props: {
       component: Object
-    },
-    components: {
-      Button
     },
     setup(props) {
       const codeVisible = ref(false);
@@ -49,17 +58,21 @@
         html,
         showCode,
         hideCode,
-        codeVisible
+        codeVisible,
       };
     }
   };
 </script>
 
 <style lang="scss">
-  $border-color: #d9d9d9;
+  $border-color: #f0f0f0;
+  $colorFloat85: rgba(0, 0, 0, .85);
+  $colorFloat45: rgba(0, 0, 0, .45);
+
   .demo {
     border: 1px solid $border-color;
     margin: 16px 0 32px;
+    border-radius: 2px;
 
     > h2 {
       font-size: 20px;
@@ -68,7 +81,8 @@
     }
 
     &-component {
-      padding: 16px;
+      padding: 42px 16px 50px;
+      border-bottom: 1px solid $border-color;
 
       .lulu-button {
         margin-right: 8px;
@@ -76,9 +90,43 @@
       }
     }
 
-    &-actions {
-      padding: 8px 16px;
-      border-top: 1px dashed $border-color;
+    &-meta {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      font-size: 14px;
+      color: $colorFloat85;
+
+      &-title {
+        position: absolute;
+        top: -10px;
+        left: 16px;
+        font-weight: 500;
+        background-color: #fff;
+      }
+
+      &-description {
+        padding: 24px 16px;
+      }
+
+      &-actions {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        border-top: 1px dashed $border-color;
+        color: $colorFloat45;
+
+        .demo-actions-icon {
+          display: block;
+          cursor: pointer;
+          font-size: 16px;
+          transition: all .25s;
+
+          &:hover {
+            color: $colorFloat85;
+          }
+        }
+      }
     }
 
     &-code {

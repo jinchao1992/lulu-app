@@ -108,7 +108,7 @@
     }
 
     > h2 {
-      margin-bottom: 4px;
+      margin: 16px 0;
       padding: 0 16px;
     }
 
