@@ -1,5 +1,5 @@
 <demo>
-  加载中
+  加载中状态
 </demo>
 <template>
   <Button loading level="primary">loading</Button>

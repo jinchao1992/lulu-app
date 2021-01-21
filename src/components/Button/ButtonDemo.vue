@@ -1,11 +1,33 @@
 <template>
   <h1>代码演示</h1>
-  <div>
-    <Demo :component="Button1Demo"/>
-    <Demo :component="Button2Demo"/>
-    <Demo :component="Button3Demo"/>
-    <Demo :component="Button4Demo"/>
-    <Demo :component="Button5Demo"/>
+  <div class="markdown-body">
+    <Demo :component="Button1Demo">
+      <template v-slot:demo-description>
+        <p>按钮有四种类型：默认按钮、文本按钮、链接按钮、虚线按钮。</p>
+      </template>
+    </Demo>
+    <Demo :component="Button2Demo">
+      <template v-slot:demo-description>
+        <p>按钮有大、中、小三种尺寸</p>
+        <p>通过设置 <code>size</code> <code>large</code> 和 <code>small</code>
+          分别为大尺寸和小尺寸 如果不写则默认为中尺寸</p>
+      </template>
+    </Demo>
+    <Demo :component="Button3Demo">
+      <template v-slot:demo-description>
+        <p>按钮有五种等级类型：主要按钮、信息按钮、默认按钮、危险按钮、警告按钮等。</p>
+      </template>
+    </Demo>
+    <Demo :component="Button4Demo">
+      <template v-slot:demo-description>
+        <p>按钮添加 <code>disabled</code> 属性后即为不可用状态</p>
+      </template>
+    </Demo>
+    <Demo :component="Button5Demo">
+      <template v-slot:demo-description>
+        <p>按钮添加 <code>loading</code> 属性后即为加载中状态</p>
+      </template>
+    </Demo>
   </div>
 </template>
 

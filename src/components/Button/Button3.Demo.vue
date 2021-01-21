@@ -1,5 +1,5 @@
 <demo>
-  按钮类型
+  按钮等级
 </demo>
 <template>
   <div>

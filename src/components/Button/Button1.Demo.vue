@@ -1,5 +1,5 @@
 <demo>
-  常规写法
+  按钮类型
 </demo>
 <template>
   <div>
