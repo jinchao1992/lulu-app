@@ -37,7 +37,8 @@
         return {
           [`lulu-theme-${props.theme}`]: props.theme,
           [`lulu-size-${props.size}`]: props.size,
-          [`lulu-level-${props.level}`]: props.level
+          [`lulu-level-${props.level}`]: props.level,
+          'lulu-loading': props.loading
         };
       });
       return {
@@ -265,7 +266,8 @@
       font-size: 14px;
     }
 
-    &.lulu-theme-link, &.lulu-theme-text {
+    &.lulu-theme-link,
+    &.lulu-theme-text {
       &[disabled] {
         cursor: not-allowed;
         color: rgba(0, 0, 0, .25);
@@ -275,6 +277,10 @@
         -webkit-box-shadow: none;
         box-shadow: none;
       }
+    }
+
+    &.lulu-loading {
+      cursor: default;
     }
 
     > .lulu-loadingIndicator {
