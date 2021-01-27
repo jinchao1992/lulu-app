@@ -19,12 +19,6 @@
         openDialog({
           title: 'Title',
           content: 'Content of the modal',
-          ok: () => {
-            console.log('ok')
-          },
-          cancel: () => {
-            console.log('cancel')
-          },
           overlayClosable: true
         })
       }
