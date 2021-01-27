@@ -3,7 +3,7 @@
 </demo>
 <template>
   <Button level="primary" @click="toggle">Dialog</Button>
-  <Dialog v-model:visible="visible" overlayClosable :ok="ok" :cancel="cancel">
+  <Dialog v-model:visible="visible" overlayClosable @ok="ok" @cancel="cancel">
     <p>这是一行内容</p>
     <p>这是第二行内容</p>
   </Dialog>
@@ -25,9 +25,10 @@
       const toggle = () => {
         visible.value = true
       }
-      const ok = () => {
-        console.log('ok')
-        return false
+      const ok = (e) => {
+        console.log(e)
+        // 点击ok后的回调
+        visible.value = false
       }
       const cancel = () => {
         console.log('cancel')

@@ -1,8 +1,16 @@
 <template>
   <h1>代码演示</h1>
   <div>
-    <Demo :component="Dialog1Demo"/>
-    <Demo :component="Dialog2Demo"/>
+    <Demo :component="Dialog1Demo">
+      <template v-slot:demo-description>
+        <p>第一个对话框。</p>
+      </template>
+    </Demo>
+    <Demo :component="Dialog2Demo">
+      <template v-slot:demo-description>
+        <p>点击按钮直接打开。</p>
+      </template>
+    </Demo>
   </div>
 </template>
 
@@ -12,7 +20,7 @@
   import Dialog2Demo from './Dialog2.Demo.vue';
 
   export default {
-    name: 'DiglogDemo',
+    name: 'DialogDemo',
     components: {
       Demo,
     },

@@ -7,7 +7,7 @@
 
 <script>
   import Button from '../../lib/Button.vue'
-  import { openDialog } from '../../lib/openDialog'
+  import {openDialog} from "../../lib"
 
   export default {
     name: 'Dialog2.Demo.vue',
