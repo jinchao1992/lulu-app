@@ -1,6 +1,10 @@
 <template>
   <h1>代码演示</h1>
-  <Demo :component="Tabs1Demo"/>
+  <Demo :component="Tabs1Demo">
+    <template v-slot:demo-description>
+      <p>默认选中第一项</p>
+    </template>
+  </Demo>
 </template>
 
 <script lang="ts">

@@ -3,7 +3,7 @@
     <TabNav/>
     <div class="banner">
       <h1>辘辘UI</h1>
-      <h2>一个厉害的UI</h2>
+      <h2>闲暇无聊，造轮子玩</h2>
       <p class="actions">
         <a href="https://gitee.com/webjinchao/lulu-app.git">码云</a>
         <a href="https://github.com">GitHub</a>
