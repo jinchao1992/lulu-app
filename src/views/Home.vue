@@ -6,7 +6,7 @@
       <h2>闲暇无聊，造轮子玩</h2>
       <p class="actions">
         <a href="https://gitee.com/webjinchao/lulu-app.git">码云</a>
-        <a href="https://github.com">GitHub</a>
+        <a href="https://github.com/jinchao1992/lulu-app">GitHub</a>
         <router-link to="/doc/intro">开始</router-link>
       </p>
     </div>
